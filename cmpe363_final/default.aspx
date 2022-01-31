@@ -26,13 +26,8 @@
         <p>
             <asp:Label ID="Label1" runat="server" Text="Detect History"></asp:Label>
         </p>
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
-            <Columns>
-                <asp:BoundField DataField="text" HeaderText="text" SortExpression="text" />
-                <asp:BoundField DataField="result" HeaderText="result" SortExpression="result" />
-            </Columns>
+        <asp:GridView ID="GridView1" runat="server">
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:finaldatabaseConnectionString2 %>" SelectCommand="SELECT [text], [result] FROM [History]"></asp:SqlDataSource>
     </form>
 </body>
 </html>
