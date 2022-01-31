@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="cmpe363_denemee._default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="cmpe363_final._default" %>
 
 <!DOCTYPE html>
 
@@ -32,7 +32,7 @@
                 <asp:BoundField DataField="result" HeaderText="result" SortExpression="result" />
             </Columns>
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:final_dbConnectionString2 %>" SelectCommand="SELECT [text], [result] FROM [History]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:finaldatabaseConnectionString2 %>" SelectCommand="SELECT [text], [result] FROM [History]"></asp:SqlDataSource>
     </form>
 </body>
 </html>
