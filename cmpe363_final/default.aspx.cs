@@ -39,10 +39,10 @@ namespace cmpe363_final
             try
             {
                 SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-                builder.DataSource = "cmpe363final.database.windows.net";
+                builder.DataSource = "cmpe363finaldb.database.windows.net";
                 builder.UserID = "saadmin";
                 builder.Password = "Asadmin123";
-                builder.InitialCatalog = "final_db";
+                builder.InitialCatalog = "finaldatabase";
 
                 using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
                 {
