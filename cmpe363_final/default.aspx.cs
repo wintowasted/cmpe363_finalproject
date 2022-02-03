@@ -20,22 +20,24 @@ namespace cmpe363_final
 
     public partial class _default : System.Web.UI.Page
     {
-        private static readonly AzureKeyCredential credentials = new AzureKeyCredential("1c5529bbead546e5a70b89e0d6d7ee2b");
-        private static readonly Uri endpoint = new Uri("https://cmpe363languageai.cognitiveservices.azure.com/");
-        TextAnalyticsClient client;
-        SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+        private static AzureKeyCredential credentials; 
+        private static  Uri endpoint;
+        private static TextAnalyticsClient client;
+        SqlConnectionStringBuilder builder;
         public static int queue_id = 1;
         public static string queue_name = "queue";
         public static string connection_string = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            client = new TextAnalyticsClient(endpoint, credentials);
 
-            builder.DataSource = "cmpe363finaldb.database.windows.net";
+
+
+            builder = new SqlConnectionStringBuilder();
+            builder.DataSource = "cmpe363finaldatabase.database.windows.net";
             builder.UserID = "saadmin";
-            builder.Password = "Asadmin123";
-            builder.InitialCatalog = "finaldatabase";
+            builder.Password = "Asadmin321";
+            builder.InitialCatalog = "cmpe363db";
 
             String sql_table = "IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='History' and xtype='U') CREATE TABLE History(text varchar(100), result varchar(20)) ";
 
@@ -229,7 +231,11 @@ namespace cmpe363_final
 
         protected void Button2_Click(object sender, EventArgs e)
         {
+            credentials = new AzureKeyCredential(TextBox4.Text);
+            endpoint = new Uri(TextBox5.Text);
+            client = new TextAnalyticsClient(endpoint, credentials);
             connection_string = TextBox3.Text;
+
         }
 
         protected void TextBox3_TextChanged(object sender, EventArgs e)
